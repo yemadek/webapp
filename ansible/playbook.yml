@@ -1,8 +1,16 @@
 ---
 
 - name: install httpd server
-  yum: 
-   name: httpd
-   state: present 
+  hosts: [webservers]
+  become: yes 
+  become_user: root 
+  
+  tasks: 
+
+     - name: installing httpd 
+       yum: 
+         name: httpd 
+         state: present  
+  
 
 
