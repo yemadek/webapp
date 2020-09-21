@@ -12,5 +12,10 @@
          name: httpd 
          state: present  
   
-
+     
+     - name: installing htop 
+       yum: 
+       name: htop 
+       state: present
+  tags: htop        
 
