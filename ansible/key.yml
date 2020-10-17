@@ -1,0 +1,22 @@
+--- 
+- name: create keys
+  hosts: [webservers]
+  become: yes 
+  become_user: root 
+  
+  tasks:  
+
+
+- name: generate SSH key for root user
+       openssh_keypair:
+             path: /root/.ssh/{{ item }}
+             type: rsa
+             size: 4096
+             state: present
+             force: no
+       with_items:
+          - id_rsa
+       tags:
+         - ssh
+
+
